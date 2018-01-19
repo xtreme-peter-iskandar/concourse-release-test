@@ -14,7 +14,7 @@ jobs:
   plan:
   - get: concourse-release
   - task: build
-    file: concourse-release/module/ci/tasks/build/build.yml
+    file: concourse-release/ci/tasks/build/build.yml
   - put: gh-release
     params:
       name: concourse-release/releases/name
