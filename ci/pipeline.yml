@@ -2,17 +2,22 @@ resources:
 - name: concourse-release
   type: git
   source:
-    uri: https://github.com/xtreme-peter-iskandar/concourse-file-test.git
+    uri: https://github.com/xtreme-peter-iskandar/concourse-release-test.git
     branch: master
 - name: gh-release
   type: github-release
   source:
     owner: xtreme-peter-iskandar
-    repository: concourse-file-test
+    repository: concourse-release-test
 jobs:
 - name: build
   plan:
   - get: concourse-release
   - task: build
     file: concourse-release/module/ci/tasks/build/build.yml
-
+  - put: gh-release
+    params:
+      name: concourse-release/releases/name
+      tag: concourse-release/releases/tag
+      globs:
+      - concourse-release/build/libs/*.jar
