@@ -7,8 +7,9 @@ resources:
 - name: gh-release
   type: github-release
   source:
-    owner: xtreme-peter-iskandar
+    user: xtreme-peter-iskandar
     repository: concourse-release-test
+    access_token: {{access-token}}
 jobs:
 - name: build
   plan:
@@ -20,4 +21,4 @@ jobs:
       name: releases/name
       tag: releases/tag
       globs:
-      - concourse-release/build/libs/*.jar
+      - releases/*.jar
