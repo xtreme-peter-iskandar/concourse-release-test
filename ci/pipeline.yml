@@ -34,9 +34,8 @@ jobs:
   plan:
     - get: concourse-release
     - get: gh-release
-    - put: resource-deploy
-      params:
-        manifest: release-test/manifests/manifest.yml
       trigger: true
       passed: [build]
-    - task: deploy
+    - put: resource-deploy
+      params:
+        manifest: concourse-release/manifests/manifest.yml
