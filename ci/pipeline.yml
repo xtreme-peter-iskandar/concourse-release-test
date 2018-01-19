@@ -22,3 +22,7 @@ jobs:
       tag: releases/tag
       globs:
       - releases/*.jar
+- name: deploy
+  plan:
+    - get: gh-release
+      trigger: true
