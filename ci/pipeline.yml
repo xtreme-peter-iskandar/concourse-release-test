@@ -31,7 +31,7 @@ jobs:
     - task: deploy
       file: concourse-release/ci/tasks/deploy/deploy.yml
       params:
-        cf-username: {{cf-username}}
-        cf-password: {{cf-password}}
-        cf-org: {{cf-org}}
-        cf-space: {{cf-space}}
+        CF_USERNAME: {{cf-username}}
+        CF_PASSWORD: {{cf-password}}
+        CF_ORG: {{cf-org}}
+        CF_SPACE: {{cf-space}}
