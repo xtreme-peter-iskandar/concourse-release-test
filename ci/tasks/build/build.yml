@@ -10,4 +10,4 @@ inputs:
   - name: concourse-release
 
 run:
-  path: ./concourse-releasegit add/ci/tasks/build/build.sh
+  path: ./concourse-release/ci/tasks/build/build.sh
