@@ -24,5 +24,9 @@ jobs:
       - releases/*.jar
 - name: deploy
   plan:
+    - get: concourse-release
     - get: gh-release
       trigger: true
+      passed: [build]
+    - task: deploy
+      file: concourse-release/ci/tasks/deploy/deploy.yml

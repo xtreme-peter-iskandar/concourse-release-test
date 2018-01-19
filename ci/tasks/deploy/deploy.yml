@@ -1,0 +1,14 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: governmentpaas/cf-cli
+    tag: latest
+
+inputs:
+  - name: gh-release
+  - name: concourse-release
+
+run:
+  path: ./concourse-release/ci/tasks/build/build.sh
