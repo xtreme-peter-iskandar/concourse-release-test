@@ -10,6 +10,14 @@ resources:
     user: xtreme-peter-iskandar
     repository: concourse-release-test
     access_token: {{access-token}}
+- name: resource-deploy
+  type: cf
+  source:
+    api: https://api.run.pivotal.io
+    username: {{cf-username}}
+    password: {{cf-password}}
+    organization: {{cf-org}}
+    space: {{cf-space}}
 jobs:
 - name: build
   plan:
@@ -26,12 +34,9 @@ jobs:
   plan:
     - get: concourse-release
     - get: gh-release
+    - put: resource-deploy
+      params:
+        manifest: release-test/manifests/manifest.yml
       trigger: true
       passed: [build]
     - task: deploy
-      file: concourse-release/ci/tasks/deploy/deploy.yml
-      params:
-        CF_USERNAME: {{cf-username}}
-        CF_PASSWORD: {{cf-password}}
-        CF_ORG: {{cf-org}}
-        CF_SPACE: {{cf-space}}
