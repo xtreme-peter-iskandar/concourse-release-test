@@ -17,7 +17,7 @@ jobs:
     file: concourse-release/ci/tasks/build/build.yml
   - put: gh-release
     params:
-      name: concourse-release/releases/name
-      tag: concourse-release/releases/tag
+      name: releases/name
+      tag: releases/tag
       globs:
       - concourse-release/build/libs/*.jar

@@ -9,6 +9,6 @@ time=$(date +%s)
 
 date=$(date +%Y-%m-%d)
 
-echo -n "$time" > releases/tag
-echo -n "release $time" > releases/name
-
+echo -n "$time" > ../releases/tag
+echo -n "release $time" > ../releases/name
+cp build/libs/*.jar ../releases/
