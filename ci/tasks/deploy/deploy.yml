@@ -11,4 +11,4 @@ inputs:
   - name: concourse-release
 
 run:
-  path: ./concourse-release/ci/tasks/build/build.sh
+  path: ./concourse-release/ci/tasks/deploy/deploy.sh

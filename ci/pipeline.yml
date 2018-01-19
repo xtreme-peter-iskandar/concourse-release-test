@@ -30,3 +30,8 @@ jobs:
       passed: [build]
     - task: deploy
       file: concourse-release/ci/tasks/deploy/deploy.yml
+      params:
+        cf-username: {{cf-username}}
+        cf-password: {{cf-password}}
+        cf-org: {{cf-org}}
+        cf-space: {{cf-space}}
