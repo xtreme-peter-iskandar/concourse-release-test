@@ -9,5 +9,8 @@ image_resource:
 inputs:
   - name: concourse-release
 
+outputs:
+  - name: releases
+
 run:
   path: ./concourse-release/ci/tasks/build/build.sh
