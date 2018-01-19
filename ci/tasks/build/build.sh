@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e -x
 
+cd concourse-release
+
 ./gradlew clean build
 
 time=$(date +%s)
